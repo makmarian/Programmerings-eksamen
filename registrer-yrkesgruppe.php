@@ -31,6 +31,11 @@ if (isset($_POST["fortsett"])) /* Knappen for å skrive til fil er trykket. */
 	{
 		print ("Feltet må fylles ut.");
 	}
+	else if (preg_match('#[^a-z]+$#i', $yrkesgruppe)) /* Bruker funksjonen "preg_match" for å hindre bruk av tall og symboler ved registrering av yrkesgruppe. */
+	{
+		print ("Yrkesgrupper kan ikke inneholde tall eller symboler.");
+	}
+	
 	else
 	{
 		$filoperasjon="a"; /* Filoperasjonen "a" blir brukt (tilføying ved slutten av fila, ikke overskriving).  */
