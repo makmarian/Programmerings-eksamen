@@ -4,9 +4,10 @@ include("start.html");
 
 ?>
 
+
 <h3>Registrer yrkesgruppe</h3>
 	<form method="post" action="registrer-yrkesgruppe.php" id="regyrkesgruppe" name="regyrkesgruppe" onSubmit="return validering()">
-		Tast inn yrkesgruppens navn:	<input type="text" id="yrkesgruppe" name="yrkesgruppe" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br />
+		Tast inn yrkesgruppens navn: <input type="text" id="yrkesgruppe" name="yrkesgruppe" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br />
 		<input type="submit" value="Registrer" id="fortsett" name="fortsett" />
 		<input type="reset" value="Nullstill feltet" id="nullstill" name="nullstill" onClick="fjernmelding()" />
 	</form>
@@ -16,15 +17,13 @@ include("start.html");
 <div id="javavalidering"></div>
 <br>
 <div id="javamelding"></div>
-	
-	
-	
-	
+
+
 <?php
 
 	$fil="../filer/yrkesgruppe.txt"; /* Kontroller mappestruktur. */
 
-if (isset($_POST["registrerYrkesgruppe"])) /* Knappen for å skrive til fil er trykket. */
+if (isset($_POST["fortsett"])) /* Knappen for å skrive til fil er trykket. */
 {
 	$yrkesgruppe=$_POST["yrkesgruppe"];
 
@@ -44,7 +43,7 @@ if (isset($_POST["registrerYrkesgruppe"])) /* Knappen for å skrive til fil er t
 
 		fclose($fil); /* Fila lukkes. */
 
-		print("Yrkesgruppen $yrkesgruppe ble registrert.");
+		print("Yrkesgruppen '$yrkesgruppe' ble registrert.");
 	}
 }
 
@@ -55,4 +54,3 @@ if (isset($_POST["registrerYrkesgruppe"])) /* Knappen for å skrive til fil er t
 include("slutt.html");
 
 ?>
-
