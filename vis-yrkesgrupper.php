@@ -11,7 +11,7 @@ include("start.html");
 
 	$filoperasjon="r"; /* Filoperasjonen "r" blir brukt (lesing av fila). */
 
-	print("Følgende yrkesgrupper er registrert: <br /> <br />");
+	print("Følgende yrkesgrupper er registrert: <br /> <br /> <ul>");
 
 	$fil=fopen($filnavn, $filoperasjon); /* Filen åpnes og leses vha. $filoperasjon definert lik "r". */
 
@@ -21,12 +21,13 @@ include("start.html");
 		{
 			$del=explode (";" , $linje);
 			$yrkesgruppe=trim($del[0]);
-			print("$yrkesgruppe <br />");
+			print("<li> $yrkesgruppe </li> <br />");
 		}
 	}
 
 	fclose($fil); /* Lukker fila. */
 
+	print("</ul>");
 ?>
 
 
