@@ -4,7 +4,7 @@ include("start.html");
 
 ?>
 
-<h2> Vis alle klasser </h2>
+<h2> Vis alle behandlere </h2>
 
 
 
@@ -13,7 +13,7 @@ include("start.html");
 
 /* lese fil */ 
 
-$filnavn="../../filer/klasse.txt";
+$filnavn="../../filer/behandler.txt";
 
 
 $filoperasjon="r";    /* read = lesing */ 
@@ -24,19 +24,24 @@ $filoperasjon="r";    /* read = lesing */
 
 $fil=fopen($filnavn,$filoperasjon);  /* åpne */ 
 
-while ($klasselinje=fgets($fil)) /* fgets leser frem til linjeskift  */
+while ($behandlerlinje=fgets($fil)) /* fgets leser frem til linjeskift  */
 {
-		if ($klasselinje!="")            /*sjekker at linje ikke er tom */ 
+		if ($behandlerlinje!="")            /*sjekker at linje ikke er tom */ 
 	 		
 	{
-		$del=explode(";",$klasselinje);
+		$del=explode(",",$behandlerlinje);
+		$behandlerID=trim($del[0]);
+		$fornavn=trim($del[1]);
+		$etternavn=trim($del[2]);
+		$yrkesgruppe=trim($del[3]);
+		$bildenr=trim($del[4]);
+		$maksAntall=trim($del[5]);
 		
 		
-		if($klasselinje==$klasselinje)
-		{
-			print("$klasselinje </br>");
+		
+		print("$etternavn $fornavn : $yrkesgruppe </br>");
 
-		}	
+			
 	}
 }	
 

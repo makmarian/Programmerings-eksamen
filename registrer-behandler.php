@@ -61,11 +61,59 @@ $maksAntall=strtoupper($maksAntall);
 $filbehandler="../../filer/behandler.txt";
 
 
-
-if (!$behandlerID || !$fornavn || !$etternavn || !$yrkesgruppe || !$bildenr || !$maksAntall)
+if (!$behandlerID)
 	{
-		Print ("Alle feltene må fylles ut");
+		Print ("BehandlerID må fylles ut <br>");
 	}
+	
+if (!$fornavn) 
+	{
+		Print ("Fornavn må fylles ut <br>");
+	}
+
+if (!$etternavn) 
+	{
+		Print ("Etternavn må fylles ut <br>");
+	}
+
+if (!$yrkesgruppe) 
+	{
+		Print ("Yrkesgruppe må fylles ut <br>");
+	}
+
+if (!$bildenr) 
+	{
+		Print ("Bildenr må fylles ut <br>");
+	}
+	
+else if (!is_numeric($bildenr))
+	{
+		print ("Bildenr må være tall <br>");
+	}	
+
+else if (strlen($bildenr)!=3)
+	{
+		print ("bildenr må bestå av 3 sifre <br>");	
+	}
+
+if (!$maksAntall) 
+	{
+		Print ("Maks antall pasienter må fylles ut <br>");
+	
+	}
+	
+else if (!is_numeric($maksAntall))
+	{
+		print ("Antall pasienter må være et tall <br>");
+	}	
+	
+else if (is_numeric($maksAntall <= 0 )) 
+	{
+		
+		print ("Antall pasienter må være mer enn 0 <br>");
+	}	
+
+	
 	
 else  
 
@@ -85,7 +133,7 @@ else
 		
 		fclose($filbehandler);		/* lukke */ 
 		
-		print ($fornavn $etternavn er registrert med ID $behandlerID til yrkesgruppen $yrkesgruppe med bilde $bildenr. Maks antall pasienter $maksAntall);	
+		print ("$fornavn $etternavn er registrert med ID $behandlerID til yrkesgruppen $yrkesgruppe med bilde $bildenr. Maks antall pasienter: $maksAntall <br>");	
 		
 	}	
 	
